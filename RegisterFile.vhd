@@ -22,6 +22,43 @@ signal reg0,reg1,reg2,reg3,reg4,reg5,reg6,reg7,reg8,reg9,
 
 begin
 
+DEC: DEC32 port map(write_sel,DECO);
+
+
+
+REGW(0)<=DECO(0) and write_ena;
+REGW(1)<=DECO(1) and write_ena;
+REGW(2)<=DECO(2) and write_ena;
+REGW(3)<=DECO(3) and write_ena;
+REGW(4)<=DECO(4) and write_ena;
+REGW(5)<=DECO(5) and write_ena;
+REGW(6)<=DECO(6) and write_ena;
+REGW(7)<=DECO(7) and write_ena;
+REGW(8)<=DECO(8) and write_ena;
+REGW(9)<=DECO(9) and write_ena;
+REGW(10)<=DECO(10) and write_ena;
+REGW(11)<=DECO(11) and write_ena;
+REGW(12)<=DECO(12) and write_ena;
+REGW(13)<=DECO(13) and write_ena;
+REGW(14)<=DECO(14) and write_ena;
+REGW(15)<=DECO(15) and write_ena;
+REGW(16)<=DECO(16) and write_ena;
+REGW(17)<=DECO(17) and write_ena;
+REGW(18)<=DECO(18) and write_ena;
+REGW(19)<=DECO(19) and write_ena;
+REGW(20)<=DECO(20) and write_ena;
+REGW(21)<=DECO(21) and write_ena;
+REGW(22)<=DECO(22) and write_ena;
+REGW(23)<=DECO(23) and write_ena;
+REGW(24)<=DECO(24) and write_ena;
+REGW(25)<=DECO(25) and write_ena;
+REGW(26)<=DECO(26) and write_ena;
+REGW(27)<=DECO(27) and write_ena;
+REGW(28)<=DECO(28) and write_ena;
+REGW(29)<=DECO(29) and write_ena;
+REGW(30)<=DECO(30) and write_ena;
+REGW(31)<=DECO(31) and write_ena;
+
 r0:REG generic map(32) port map(write_data,clk,REGW(0),'0','0',reg0);
 r1:REG generic map(32) port map(write_data,clk,REGW(1),'0','0',reg1);
 r2:REG generic map(32) port map(write_data,clk,REGW(2),'0','0',reg2);
@@ -66,14 +103,6 @@ reg0,reg1,reg2,reg3,reg4,reg5,reg6,reg7,reg8,reg9,
 reg10,reg11,reg12,reg13,reg14,reg15,reg16,reg17,reg18,reg19,
 reg20,reg21,reg22,reg23,reg24,reg25,reg26,reg27,reg28,reg29,reg30,reg31,data2);
 
-DEC: DEC32 port map(write_sel,DECO);
-
-process
-begin
-for I in 0 to 31 loop
-REGW(I)<=DECO(I) and write_ena;
-end loop;
-end process;
 
 end Behavioral;
 
